@@ -4,7 +4,7 @@
 - pip install aliyun-python-sdk-core
 - pip install viapi-utils
 
-## Useage
+## Usage
 ```python
 from viapi.fileutils import FileUtils
 file_utils = FileUtils("your own accessKey","your own accessSecret")

@@ -37,7 +37,7 @@
     
 ```
 
-## Useage
+## Usage
 ```java
 public static void testUploadFile() throws ClientException, IOException {
         String accessKey = "xxx";
