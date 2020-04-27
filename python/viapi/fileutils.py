@@ -27,13 +27,14 @@ class FileUtils:
         auth = oss2.StsAuth(ak_key, ak_sec , token)
 
         bucket = oss2.Bucket(auth, 'http://oss-cn-shanghai.aliyuncs.com', 'viapi-customer-temp')
+        oss_key = self.access_key + "/" + str(uuid.uuid4()) + "." + suffix
+        oss_url = 'http://viapi-customer-temp.oss-cn-shanghai.aliyuncs.com/' + oss_key
         if is_local:
             with open(file_path,"rb") as image:
-                oss_url = self.access_key + "/" + str(uuid.uuid4()) + suffix
-                bucket.put_object(oss_url, image)
+
+                bucket.put_object(oss_key, image)
                 return oss_url
         else:
             with url_request.urlopen(file_path, cafile=certifi.where()) as image:
-                oss_url = self.access_key + "/" + str(uuid.uuid4()) + suffix
-                bucket.put_object(oss_url, image.read())
+                bucket.put_object(oss_key, image.read())
                 return oss_url

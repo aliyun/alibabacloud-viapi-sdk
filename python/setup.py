@@ -24,13 +24,15 @@ Created on 4/27/2020
 @author: Alibaba Cloud
 """
 
-PACKAGE = "Viapi-utils"
+PACKAGE = "viapi-utils"
 DESCRIPTION = "The viapi-utils module of alibabaCloud Python SDK."
 AUTHOR = "Alibaba Cloud"
 AUTHOR_EMAIL = "alibaba-cloud-sdk-dev-team@list.alibaba-inc.com"
 URL = "https://github.com/aliyun/alibabacloud-viapi-sdk/tree/master/python"
 TOPDIR = os.path.dirname(__file__) or "."
-VERSION = __import__(PACKAGE).__version__
+# VERSION = __import__(PACKAGE).__version__
+VERSION = "1.0.0"
+
 
 
 
@@ -60,4 +62,4 @@ setup_args = {
     )
 }
 
-setup(name='alibabacloud-viapi-utils', **setup_args)
+setup(name='viapi-utils', **setup_args)
