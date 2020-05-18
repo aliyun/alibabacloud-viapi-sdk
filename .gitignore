@@ -1,0 +1,8 @@
+.nyc_output/
+coverage/
+node_modules/
+dist/
+libraries
+.libraries.json
+*.sh
+*sum
