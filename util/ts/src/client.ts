@@ -31,7 +31,12 @@ export default class Client {
    * @return the matched string
    */
   static match(origin: string, regrex: string): string {
-    return origin.match(regrex) ? origin : '';
+    let ret = '';
+    let matchRet = origin.match(regrex);
+    if (matchRet && matchRet.length){
+      ret = matchRet[0];
+    }
+    return ret;
   }
 
   /**

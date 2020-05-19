@@ -1,6 +1,6 @@
 {
   "name": "viapi-util",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "@alicloud/rpc-client": "^1.1.0",
     "@alicloud/oss-util": "0.0.1",
     "@alicloud/viapiutils20200401": "^1.1.0",
-    "@alicloud/viapi-tool": "^1.0.0"
+    "@alicloud/viapi-tool": "^1.1.0"
   },
   "files": [
     "dist",
