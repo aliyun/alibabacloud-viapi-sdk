@@ -1,4 +1,4 @@
-module github.com/aliyun/alibabacloud-viapi-sdk/util/golang
+module github.com/alibabacloud-go/viapi-tool
 
 go 1.12
 
