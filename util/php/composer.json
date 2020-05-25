@@ -1,6 +1,6 @@
 {
   "name": "alibabacloud/viapi-utils",
-  "description": "Alibaba Cloud Viapiutils Utils Library for PHP",
+  "description": "Alibaba Cloud Viapiutils Tool Library for PHP",
   "type": "library",
   "license": "Apache-2.0",
   "authors": [
