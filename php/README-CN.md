@@ -2,14 +2,14 @@ English | [简体中文](README-CN.md)
 
 ![](https://aliyunsdk-pages.alicdn.com/icons/AlibabaCloud.svg)
 
-## Alibaba Cloud Viapiutils SDK Library for PHP
+## Alibaba Cloud Viapi Utils Library for PHP
 
 ## Installation
 
 ### Composer
 
 ```bash
-composer require alibabacloud/viapiutils
+composer require alibabacloud/viapi-utils
 ```
 
 ## Issues

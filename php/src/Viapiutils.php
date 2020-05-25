@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Viapiutils;
+namespace AlibabaCloud\SDK\ViapiUtils;
 
 use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PutObjectRequest;
@@ -14,7 +14,7 @@ use AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions;
 use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\Utils\Utils;
 
-class Viapiutils
+class ViapiUtils
 {
     /**
      * @param string $accessKeyId
