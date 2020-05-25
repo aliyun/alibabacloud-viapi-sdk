@@ -6,3 +6,8 @@ libraries
 .libraries.json
 *.sh
 *sum
+
+
+**/csharp/**/bin
+**/csharp/**/obj
+**/csharp/**/.vs
