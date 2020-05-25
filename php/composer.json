@@ -15,7 +15,8 @@
     "alibabacloud/tea-utils": "^0.2.0",
     "alibabacloud/tea-rpc": "^0.1.5",
     "alibabacloud/tea-oss-utils": "^0.2.0",
-    "alibabacloud/viapiutils-20200401": "^0.1.0"
+    "alibabacloud/viapiutils-20200401": "^0.1.0",
+    "alibabacloud/viapi-tool": "^0.1.0"
   },
   "autoload": {
     "psr-4": {
