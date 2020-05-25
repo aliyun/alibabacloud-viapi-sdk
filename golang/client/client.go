@@ -10,7 +10,7 @@ import (
 	rpc "github.com/alibabacloud-go/tea-rpc/client"
 	util "github.com/alibabacloud-go/tea-utils/service"
 	"github.com/alibabacloud-go/tea/tea"
-	viapitool "github.com/aliyun/alibabacloud-viapi-sdk/util/golang/client"
+	viapitool "github.com/alibabacloud-go/viapi-tool/client"
 )
 
 func Upload(accessKeyId *string, accessKeySecret *string, filePath *string) (_result *string, _err error) {
