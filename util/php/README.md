@@ -2,19 +2,19 @@
 
 ![](https://aliyunsdk-pages.alicdn.com/icons/AlibabaCloud.svg)
 
-## Alibaba Cloud Viapiutils Utils Library for PHP
+## Alibaba Cloud Viapiutils Tool Library for PHP
 
 ## 安装
 
 ### Composer
 
 ```bash
-composer require alibabacloud/viapi-utils
+composer require alibabacloud/viapi-tool
 ```
 
 ## 问题
 
-[提交 Issue](https://github.com/alibabacloud-sdk-php/viapi-utils/issues/new)，不符合指南的问题可能会立即关闭。
+[提交 Issue](https://github.com/alibabacloud-sdk-php/viapi-tool/issues/new)，不符合指南的问题可能会立即关闭。
 
 ## 发行说明
 
@@ -22,7 +22,7 @@ composer require alibabacloud/viapi-utils
 
 ## 相关
 
-* [最新源码](https://github.com/alibabacloud-sdk-php/viapi-utils)
+* [最新源码](https://github.com/alibabacloud-sdk-php/viapi-tool)
 
 ## 许可证
 

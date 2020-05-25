@@ -2,19 +2,19 @@ English | [简体中文](README-CN.md)
 
 ![](https://aliyunsdk-pages.alicdn.com/icons/AlibabaCloud.svg)
 
-## Alibaba Cloud Viapiutils Utils Library for PHP
+## Alibaba Cloud Viapiutils Tool Library for PHP
 
 ## Installation
 
 ### Composer
 
 ```bash
-composer require alibabacloud/viapi-utils
+composer require alibabacloud/viapi-tool
 ```
 
 ## Issues
 
-[Opening an Issue](https://github.com/alibabacloud-sdk-php/viapi-utils/issues/new), Issues not conforming to the guidelines may be closed immediately.
+[Opening an Issue](https://github.com/alibabacloud-sdk-php/viapi-tool/issues/new), Issues not conforming to the guidelines may be closed immediately.
 
 ## Changelog
 
@@ -22,7 +22,7 @@ Detailed changes for each release are documented in the [release notes](./Change
 
 ## References
 
-* [Latest Release](https://github.com/alibabacloud-sdk-php/viapi-utils)
+* [Latest Release](https://github.com/alibabacloud-sdk-php/viapi-tool)
 
 ## License
 
