@@ -1,5 +1,5 @@
 {
-  "name": "viapi-util",
+  "name": "viapi-utils",
   "version": "1.1.0",
   "description": "",
   "main": "dist/client.js",
