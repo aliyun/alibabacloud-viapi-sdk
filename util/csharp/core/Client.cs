@@ -28,7 +28,7 @@ namespace AlibabaCloud.ViapiTool
          * @param sub the prefix string
          * @return the judge result
          */
-        public static bool? StartsWith(string origin, string sub)
+        public static bool StartsWith(string origin, string sub)
         {
             if(string.IsNullOrEmpty(origin))
             {
