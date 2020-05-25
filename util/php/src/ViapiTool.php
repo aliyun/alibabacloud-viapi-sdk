@@ -1,6 +1,6 @@
 <?php
 
-namespace AlibabaCloud\SDK\ViapiUtils;
+namespace AlibabaCloud\SDK\ViapiTool;
 
 use GuzzleHttp\Psr7\Stream;
 
