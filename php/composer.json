@@ -1,6 +1,6 @@
 {
-  "name": "alibabacloud/viapiutils",
-  "description": "Alibaba Cloud Viapiutils SDK Library for PHP",
+  "name": "alibabacloud/viapi-utils",
+  "description": "Alibaba Cloud Viapi Utils Library for PHP",
   "type": "library",
   "license": "Apache-2.0",
   "authors": [
@@ -20,7 +20,7 @@
   },
   "autoload": {
     "psr-4": {
-      "AlibabaCloud\\SDK\\Viapiutils\\": "src"
+      "AlibabaCloud\\SDK\\ViapiUtils\\": "src"
     }
   },
   "scripts": {

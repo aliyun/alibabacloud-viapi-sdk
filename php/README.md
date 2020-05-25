@@ -2,14 +2,14 @@
 
 ![](https://aliyunsdk-pages.alicdn.com/icons/AlibabaCloud.svg)
 
-## Alibaba Cloud Viapiutils SDK Library for PHP
+## Alibaba Cloud Viapi Utils Library for PHP
 
 ## 安装
 
 ### Composer
 
 ```bash
-composer require alibabacloud/viapiutils
+composer require alibabacloud/viapi-utils
 ```
 
 ## 问题
