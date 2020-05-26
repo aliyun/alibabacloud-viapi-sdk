@@ -4,10 +4,12 @@ node_modules/
 dist/
 libraries
 .libraries.json
-*.sh
 *sum
-
 
 **/csharp/**/bin
 **/csharp/**/obj
 **/csharp/**/.vs
+
+coverage.html
+coverage.out
+.DS_Store
