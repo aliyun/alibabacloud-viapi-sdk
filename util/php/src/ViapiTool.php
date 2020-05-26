@@ -112,7 +112,7 @@ class ViapiTool
      */
     public static function getStreamFromNet($url)
     {
-        return new Stream(fopen($url, 'r+'));
+        return new Stream(fopen('data://text/plain;base64,' . base64_encode(\file_get_contents($url)), 'r+'));
     }
 
     /**
