@@ -12,4 +12,10 @@ libraries
 
 coverage.html
 coverage.out
+
+java/.settings/
+java/target/
+.classpath
+.project
+
 .DS_Store
