@@ -19,3 +19,4 @@ java/target/
 .project
 
 .DS_Store
+*.sh
