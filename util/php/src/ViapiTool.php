@@ -7,7 +7,7 @@ use GuzzleHttp\Psr7\Stream;
 /**
  * For viapi.
  */
-class ViapiUtils
+class ViapiTool
 {
     /**
      * Judge whether origin starts with sub, if yes, return true, or return false.
