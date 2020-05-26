@@ -36,7 +36,7 @@ class ViapiTool
      */
     public static function match($origin, $regrex)
     {
-        return preg_match($regrex, $origin) ? $origin : '';
+        return preg_match("/^{$regrex}$/", $origin) ? $origin : '';
     }
 
     /**
