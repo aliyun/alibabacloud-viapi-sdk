@@ -40,7 +40,7 @@ class ViapiUtils
             $viclient   = new AlibabaCloudSDKViapiutilsV20200401Viapiutils($viConfig);
             $viRequest  = new GetOssStsTokenRequest([]);
             $viResponse = $viclient->getOssStsToken($viRequest);
-            if (Utils::isUnset($viResponse) || Utils::isUnset($viResponse->data->toMap())) {
+            if (Utils::isUnset($viResponse) || Utils::isUnset($viResponse->data)) {
                 throw new TeaError([
                     'code'    => 'InvalidResponse',
                     'message' => 'GetOssStsToken gets a invalid response',
