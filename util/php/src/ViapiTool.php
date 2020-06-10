@@ -42,6 +42,8 @@ class ViapiTool
     /**
      * Decode origin with decodeType.
      *
+     * @deprecated only deprecated in ViapiUtils for PHP
+     *
      * @param string $origin     the original string
      * @param string $decodeType decode type
      *
@@ -51,9 +53,10 @@ class ViapiTool
      */
     public static function decode($origin, $decodeType)
     {
-        $text = rawurldecode($origin);
+        // $text = rawurldecode($origin);
 
-        return iconv(mb_detect_encoding($text, mb_detect_order(), true), strtoupper($decodeType), $text);
+        // return iconv(mb_detect_encoding($text, mb_detect_order(), true), strtoupper($decodeType), $text);
+        return $origin;
     }
 
     /**
