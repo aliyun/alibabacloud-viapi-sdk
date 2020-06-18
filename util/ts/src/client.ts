@@ -33,7 +33,7 @@ export default class Client {
   static match(origin: string, regrex: string): string {
     let ret = '';
     let matchRet = origin.match(regrex);
-    if (matchRet && matchRet.length){
+    if (matchRet && matchRet.length) {
       ret = matchRet[0];
     }
     return ret;
@@ -46,7 +46,7 @@ export default class Client {
    * @return the decoded string
    */
   static decode(origin: string, decodeType: string): string {
-    return decodeURIComponent(origin);
+    return origin;
   }
 
   /**
@@ -97,8 +97,8 @@ export default class Client {
    * @return the stream
    */
   static async getStreamFromPath(filepath: string): Promise<Readable> {
-    const readFile = promisify(fs.readFile); 
-    const fileData = await readFile(filepath,'utf8')
+    const readFile = promisify(fs.readFile);
+    const fileData = await readFile(filepath, 'utf8')
     return Readable.from(fileData);
   }
 
