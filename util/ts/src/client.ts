@@ -6,8 +6,8 @@ import { Readable } from 'stream';
 import url from 'url';
 import path from 'path';
 import https from 'https';
+import http from 'http';
 import fs from 'fs';
-import { promisify } from 'util';
 import * as $tea from '@alicloud/tea-typescript';
 
 
@@ -55,7 +55,7 @@ export default class Client {
    * @return the file name
    */
   static getNameFromUrl(urlStr: string): string {
-    return url.parse(urlStr).path || '';
+    return url.parse(urlStr).pathname || '';
   }
 
   /**
@@ -84,8 +84,15 @@ export default class Client {
    * @return the stream
    */
   static async getStreamFromNet(url: string): Promise<Readable> {
+    if (url.includes('https')) {
+      return new Promise((resolve, reject) => {
+        https.get(url, (res) => {
+          resolve(res);
+        })
+      })
+    }
     return new Promise((resolve, reject) => {
-      https.get(url, (res) => {
+      http.get(url, (res) => {
         resolve(res);
       })
     })
@@ -97,9 +104,7 @@ export default class Client {
    * @return the stream
    */
   static async getStreamFromPath(filepath: string): Promise<Readable> {
-    const readFile = promisify(fs.readFile);
-    const fileData = await readFile(filepath, 'utf8')
-    return Readable.from(fileData);
+    return fs.createReadStream(filepath);
   }
 
   /**
