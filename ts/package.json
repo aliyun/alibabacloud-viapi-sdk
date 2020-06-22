@@ -1,6 +1,6 @@
 {
-  "name": "viapi-utils",
-  "version": "1.1.0",
+  "name": "@alicloud/viapi-utils",
+  "version": "1.0.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "tsc",
     "prepublishOnly": "tsc"
   },
-  "author": "Jackson Tian",
+  "author": "Alibaba Cloud SDK",
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/node": "^12.12.26",
