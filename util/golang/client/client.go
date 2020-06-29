@@ -5,7 +5,9 @@
 package client
 
 import (
+	"fmt"
 	"io"
+	"io/ioutil"
 	"net/http"
 	"net/url"
 	"os"
@@ -69,6 +71,14 @@ func GetStreamFromNet(filepath *string) (_result io.Reader, _err error) {
 	resp, _err := http.Get(tea.StringValue(filepath))
 	if _err != nil {
 		return nil, _err
+	}
+
+	if resp.StatusCode < 200 || resp.StatusCode > 300 {
+		byt, _err := ioutil.ReadAll(resp.Body)
+		if _err != nil {
+			return nil, _err
+		}
+		return nil, fmt.Errorf("Get %s failed, message: %s", tea.StringValue(filepath), string(byt))
 	}
 
 	return resp.Body, nil
