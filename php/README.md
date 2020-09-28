@@ -1,10 +1,10 @@
-[English](README.md) | 简体中文
+English | [简体中文](README-CN.md)
 
 ![](https://aliyunsdk-pages.alicdn.com/icons/AlibabaCloud.svg)
 
 ## Alibaba Cloud Viapi Utils Library for PHP
 
-## 安装
+## Installation
 
 ### Composer
 
@@ -12,19 +12,41 @@
 composer require alibabacloud/viapi-utils
 ```
 
-## 问题
+## Demo
 
-[提交 Issue](https://github.com/aliyun/alibabacloud-sdk/issues/new)，不符合指南的问题可能会立即关闭。
+```php
+<?php
+namespace demo;
 
-## 发行说明
+require __DIR__ . '/vendor/autoload.php';
 
-每个版本的详细更改记录在[发行说明](./ChangeLog.txt)中。
+use AlibabaCloud\SDK\ViapiUtils\ViapiUtils;
+use AlibabaCloud\Tea\Exception\TeaUnableRetryError;
 
-## 相关
+try {
+    $url = new ViapiUtils::upload("<Access-Key-Id>", "<Access-Key-Secret>", "<File-Path>");
+    var_dump($url);
+} catch (TeaUnableRetryError $e) {
+    var_dump($e->getMessage());
+    var_dump($e->getErrorInfo());
+    var_dump($e->getLastException());
+    var_dump($e->getLastRequest());
+}
+```
 
-* [最新源码](https://github.com/aliyun/alibabacloud-sdk)
+## Issues
 
-## 许可证
+[Opening an Issue](https://github.com/aliyun/alibabacloud-sdk/issues/new), Issues not conforming to the guidelines may be closed immediately.
+
+## Changelog
+
+Detailed changes for each release are documented in the [release notes](./ChangeLog.txt).
+
+## References
+
+* [Latest Release](https://github.com/aliyun/alibabacloud-sdk)
+
+## License
 
 [Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
