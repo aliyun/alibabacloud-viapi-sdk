@@ -14,16 +14,21 @@ use AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions;
 use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\Utils\Utils;
 
+/**
+ * Viapi Utils.
+ */
 class ViapiUtils
 {
     /**
-     * @param string $accessKeyId
-     * @param string $accessKeySecret
-     * @param string $filePath
+     * Upload file with filaPath.
      *
-     * @throws \Exception
+     * @param string $accessKeyId     the accessKey id
+     * @param string $accessKeySecret the accessKey secret
+     * @param string $filePath        file path
      *
-     * @return string
+     * @throws TeaError
+     *
+     * @return string the file url
      */
     public static function upload($accessKeyId, $accessKeySecret, $filePath)
     {
