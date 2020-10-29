@@ -59,12 +59,6 @@ public class FileUtils {
 
         InputStream ins = null;
         try {
-            GetOssStsTokenRequest getOssStsTokenRequest = new GetOssStsTokenRequest();
-            GetOssStsTokenResponse getOssStsTokenResponse = client.getAcsResponse(getOssStsTokenRequest);
-            String akKey = getOssStsTokenResponse.getData().getAccessKeyId();
-            String akSec = getOssStsTokenResponse.getData().getAccessKeySecret();
-            String token = getOssStsTokenResponse.getData().getSecurityToken();
-            OSSClient ossClient = new OSSClient("http://oss-cn-shanghai.aliyuncs.com", akKey, akSec, token);
             String fileName = "";
 
             if (StringUtils.startsWithAny(filePath, "http://", "https://")) {
@@ -88,15 +82,28 @@ public class FileUtils {
                 fileName = file.getName();
                 ins = new FileInputStream(file);
             }
-            String key = accessKeyId + "/" + UUID.randomUUID().toString() + fileName;
 
-            ossClient.putObject("viapi-customer-temp", key, ins);
-            return "http://viapi-customer-temp.oss-cn-shanghai.aliyuncs.com/" + key ;
+            return upload(fileName, ins);
         }finally {
             if(ins != null){
                 ins.close();
             }
         }
+
+    }
+
+    public String upload(String fileName, InputStream stream) throws ClientException, IOException {
+
+        GetOssStsTokenRequest getOssStsTokenRequest = new GetOssStsTokenRequest();
+        GetOssStsTokenResponse getOssStsTokenResponse = client.getAcsResponse(getOssStsTokenRequest);
+        String akKey = getOssStsTokenResponse.getData().getAccessKeyId();
+        String akSec = getOssStsTokenResponse.getData().getAccessKeySecret();
+        String token = getOssStsTokenResponse.getData().getSecurityToken();
+        OSSClient ossClient = new OSSClient("http://oss-cn-shanghai.aliyuncs.com", akKey, akSec, token);
+        String key = accessKeyId + "/" + UUID.randomUUID().toString() + fileName;
+
+        ossClient.putObject("viapi-customer-temp", key, stream);
+        return "http://viapi-customer-temp.oss-cn-shanghai.aliyuncs.com/" + key ;
 
     }
 
