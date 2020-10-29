@@ -19,7 +19,8 @@ class FileUtils:
         request.set_endpoint("viapiutils.cn-shanghai.aliyuncs.com")
 
         response = self.client.do_action_with_exception(request)
-        response_data = json.loads(response,encoding="UTF-8").get('Data')
+        #response_data = json.loads(response,encoding="UTF-8").get('Data')
+        response_data = json.loads(response.decode(encoding='UTF-8')).get('Data')
         token = response_data.get('SecurityToken')
         ak_key = response_data.get('AccessKeyId')
         ak_sec = response_data.get('AccessKeySecret')
@@ -35,6 +36,9 @@ class FileUtils:
                 bucket.put_object(oss_key, image)
                 return oss_url
         else:
-            with url_request.urlopen(file_path, cafile=certifi.where()) as image:
+            headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
+            req = url_request.Request(file_path, headers=headers)
+            #with url_request.urlopen(file_path, cafile=certifi.where()) as image:
+            with url_request.urlopen(req, cafile=certifi.where()) as image:
                 bucket.put_object(oss_key, image.read())
                 return oss_url
