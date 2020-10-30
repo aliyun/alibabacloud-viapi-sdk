@@ -31,7 +31,7 @@ AUTHOR_EMAIL = "alibaba-cloud-sdk-dev-team@list.alibaba-inc.com"
 URL = "https://github.com/aliyun/alibabacloud-viapi-sdk/tree/master/python"
 TOPDIR = os.path.dirname(__file__) or "."
 # VERSION = __import__(PACKAGE).__version__
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 
 
 
