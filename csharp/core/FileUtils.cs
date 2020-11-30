@@ -61,11 +61,26 @@ namespace AlibabaCloud.SDK.VIAPI.Utils
                     fileName = fileNameRegex.Matches(filePath.ToLower())[0].Value;
                 }
 
-                HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(fileName);
+                HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(filePath);
                 httpWebRequest.Method = "GET";
                 using (HttpWebResponse res = (HttpWebResponse)httpWebRequest.GetResponse())
                 {
-                    ins = res.GetResponseStream();
+                    ins = new MemoryStream();
+                    using (var stream = res.GetResponseStream())
+                    {
+
+                        var buffer = new byte[1024];
+                        while (true)
+                        {
+                            var length = stream.Read(buffer, 0, 1024);
+                            if (length == 0)
+                            {
+                                break;
+                            }
+
+                            ins.Write(buffer, 0, length);
+                        }
+                    }
                 }
             }
             else
@@ -87,14 +102,25 @@ namespace AlibabaCloud.SDK.VIAPI.Utils
                 string akKey = getOssStsTokenResponse.Data.AccessKeyId;
                 string akSec = getOssStsTokenResponse.Data.AccessKeySecret;
                 string token = getOssStsTokenResponse.Data.SecurityToken;
-                Aliyun.OSS.OssClient ossClient = new Aliyun.OSS.OssClient("http://oss-cn-shanghai.aliyuncs.com", akKey, akSec, token);
+
                 string key = accessKeyId + "/" + Guid.NewGuid().ToString() + fileName;
-                ossClient.PutObject("viapi-customer-temp", key, stream);
+                OSS.Models.Config ossConfig = new OSS.Models.Config();
+                ossConfig.AccessKeyId = akKey;
+                ossConfig.AccessKeySecret = akSec;
+                ossConfig.SecurityToken = token;
+                ossConfig.Endpoint = "oss-cn-shanghai.aliyuncs.com";
+                ossConfig.Type = "sts";
+                OSS.Client ossClient = new OSS.Client(ossConfig);
+                OSS.Models.PutObjectRequest request = new OSS.Models.PutObjectRequest();
+                request.BucketName = "viapi-customer-temp";
+                request.Body = stream;
+                request.ObjectName = key;
+                var ossRes = ossClient.PutObject(request, new OSSUtil.Models.RuntimeOptions());
                 return "http://viapi-customer-temp.oss-cn-shanghai.aliyuncs.com/" + key;
             }
             finally
             {
-                if(stream != null)
+                if (stream != null)
                 {
                     stream.Close();
                 }
