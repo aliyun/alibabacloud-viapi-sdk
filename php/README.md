@@ -24,7 +24,7 @@ use AlibabaCloud\SDK\ViapiUtils\ViapiUtils;
 use AlibabaCloud\Tea\Exception\TeaUnableRetryError;
 
 try {
-    $url = new ViapiUtils::upload("<Access-Key-Id>", "<Access-Key-Secret>", "<File-Path>");
+    $url = ViapiUtils::upload("<Access-Key-Id>", "<Access-Key-Secret>", "<File-Path>");
     var_dump($url);
 } catch (TeaUnableRetryError $e) {
     var_dump($e->getMessage());
