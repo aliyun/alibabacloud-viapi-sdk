@@ -99,11 +99,18 @@ public class FileUtils {
         String akKey = getOssStsTokenResponse.getData().getAccessKeyId();
         String akSec = getOssStsTokenResponse.getData().getAccessKeySecret();
         String token = getOssStsTokenResponse.getData().getSecurityToken();
-        OSSClient ossClient = new OSSClient("http://oss-cn-shanghai.aliyuncs.com", akKey, akSec, token);
-        String key = accessKeyId + "/" + UUID.randomUUID().toString() + fileName;
+        OSSClient ossClient = null;
+        try {
+            ossClient = new OSSClient("http://oss-cn-shanghai.aliyuncs.com", akKey, akSec, token);
+            String key = accessKeyId + "/" + UUID.randomUUID().toString() + fileName;
 
-        ossClient.putObject("viapi-customer-temp", key, stream);
-        return "http://viapi-customer-temp.oss-cn-shanghai.aliyuncs.com/" + key ;
+            ossClient.putObject("viapi-customer-temp", key, stream);
+            return "http://viapi-customer-temp.oss-cn-shanghai.aliyuncs.com/" + key;
+        } finally {
+            if (ossClient != null) {
+                ossClient.shutdown();
+            }
+        }
 
     }
 
